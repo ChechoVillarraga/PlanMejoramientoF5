@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/template/Universal2.xhtml">
+
+            <ui:define name="title">
+                Añadir Preguntas
+            </ui:define>
+
+            <ui:define name="content">
+                <div class="container">
+                    <h:form>
+                        <h1><h:outputText value="Create/Edit"/></h1>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel 
+                                value="Enunciado:" 
+                                for="enunciado" 
+                                />
+                            <h:inputText 
+                                id="enunciado" 
+                                value="#{preguntasControlador.pregunta.enunciado}" 
+                                title="Enunciado" 
+                                required="true"
+                                />
+                            <h:outputLabel 
+                                value="ValorPregunta:" 
+                                for="valorPregunta"
+                                />
+                            <h:inputText 
+                                id="valorPregunta"
+                                value="#{preguntasControlador.pregunta.valorPregunta}" 
+                                title="ValorPregunta" 
+                                required="true"
+                                />
+                        </h:panelGrid>
+                        <h:commandButton 
+                            actionListener="#{preguntasControlador.registrarPregunta()}" 
+                            value="Registrar Pregunta"
+                            >
+                        </h:commandButton>
+                    </h:form>
+                    
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

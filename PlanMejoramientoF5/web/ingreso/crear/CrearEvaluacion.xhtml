@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/template/Universal2.xhtml">
+
+            <ui:define name="title">
+                Crear Evaluacion!
+            </ui:define>
+
+            <ui:define name="content">
+                <div class="container">
+                    <h:form>
+                        <p:panel id="panel" header="Titulo Evaluación" style="margin-bottom:10px;">
+                            <p:messages></p:messages>
+                            <h1><p:outputLabel
+                                    value="Crear una Evaluación para generar Preguntas!"
+                                    /></h1>
+                            <p:panelGrid columns="2"
+                                         >
+
+                                <p:outputLabel 
+                                    value="Titulo para la Evaluación: " 
+                                    for="tituloEvaluacion" 
+                                    />
+                                <p:inputText 
+                                    id="tituloEvaluacion" 
+                                    value="#{evaluacionControlador.evaluacion.tituloEvaluacion}" title="TituloEvaluacion" 
+                                    required="true"
+                                    requiredMessage="Debes ingresar un Titulo a tu Evaluación para identificarlo luego!"
+                                    style="width: 800px"
+                                    />
+
+                                <p:outputLabel 
+                                    value="A que Curso deseas asignarle la Evaluación: "
+                                    /> 
+                                <p:selectOneMenu 
+                                    value="#{evaluacionControlador.curso}"
+                                    required="true"
+                                    requiredMessage="Debes seleccionar un Curso a tu Evaluación para ligarlo!"
+                                    >
+                                    <f:selectItems 
+                                        value="#{cursoControlador.listarCursos()}" 
+                                        var="curso" 
+                                        itemLabel="#{curso.tituloCurso}"
+                                        />
+                                </p:selectOneMenu>               
+                                <p:commandButton
+                                    actionListener="#{evaluacionControlador.registrarEvaluacion()}" 
+                                    value="Siguiente.... "
+                                    />
+                            </p:panelGrid>
+                        </p:panel>
+                    </h:form>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

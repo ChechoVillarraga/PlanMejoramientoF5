@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ingresa al Sistema</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet name="universal.css" library="css"/>
+        <h:outputStylesheet name="indexCore.css" library="css"/>
+    </h:head>
+    <h:body>
+        <h:form>            
+            <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
+                <p:graphicImage name="puerta.jpg" class="imagenFondo" library="images"/>
+            </h:outputLink>
+
+            <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+            <p:dialog header="Ingresa al Sistema" widgetVar="dlg" resizable="false">
+                <h:messages></h:messages>
+                <h:panelGrid columns="2" cellpadding="5">
+                    <h:outputLabel for="username" value="Correo E:" />
+                    <p:inputText id="username" value="#{loginController.correo}" required="true" label="Correo" />
+
+                    <h:outputLabel for="password" value="Clave:" />
+                    <p:password id="password" value="#{loginController.clave}" required="true" label="Clave" />
+
+                    <f:facet name="footer">
+                        <p:commandButton value="Login" update="growl" action="#{loginController.ingresar()}"
+                                          />
+                    </f:facet>  
+                </h:panelGrid>
+            </p:dialog>
+        </h:form>
+
+        <script type="text/javascript">
+            function handleLoginRequest(xhr, status, args) {
+                if (args.validationFailed || !args.loggedIn) {
+                    PF('dlg').jq.effect("shake", {times: 5}, 100);
+                } else {
+                    PF('dlg').hide();
+                    $('#loginLink').fadeOut();
+                }
+            }
+        </script>
+    </h:body>
+</html>

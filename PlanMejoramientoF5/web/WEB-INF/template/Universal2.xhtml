@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="bootstrap.css" library="css"/>
+        <h:outputStylesheet name="universal.css" library="css"/>
+        <h:outputStylesheet name="NavigationBar.css" library="css"/>
+        <h:outputScript library="primefaces" name="jquery/jquery.js" target="body"/>
+        <h:outputScript name="bootstrap.js" library="scripts" target="body"/>
+        <title><ui:insert name="title"></ui:insert></title>
+    </h:head>
+
+    <h:body>
+
+        <div id="left">
+            <ui:insert name="left"> 
+                <div class="nav-side-menu">
+                    <div class="brand">Menu Principal</div>
+
+                    <div class="menu-list">
+
+                        <ul id="menu-content" class="menu-content collapse out">
+                            <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+                                <a href="#"> Cursos </a>
+                            </li>
+                            <ul class="sub-menu collapse" id="products">
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                            </ul>
+
+
+                            <li data-toggle="collapse" data-target="#service" class="collapsed">
+                                <a href="#"> Evaluación </a>
+                            </li>  
+                            <ul class="sub-menu collapse" id="service">
+                                <li> <h:link value="Crear Evaluación" outcome="crear/CrearEvaluacion" /> </li>
+                            </ul>
+
+
+                            <li data-toggle="collapse" data-target="#new" class="collapsed">
+                                <a href="#"> Preguntas </a>
+                            </li>
+                            <ul class="sub-menu collapse" id="new">
+                                <li>New New 1</li>
+                                <li>New New 2</li>
+                                <li>New New 3</li>
+                            </ul>
+
+                            <li data-toggle="collapse" data-target="#estudiantes" class="collapsed">
+                                <a href="#"> Estudiantes </a>
+                            </li>
+                            <ul class="sub-menu collapse" id="estudiantes">
+                                <li>New New 1</li>
+                                <li>New New 2</li>
+                                <li>New New 3</li>
+                            </ul>
+
+                            <li data-toggle="collapse" data-target="#profesores" class="collapsed">
+                                <a href="#"> Profesores </a>
+                            </li>
+                            <ul class="sub-menu collapse" id="profesores">
+                                <li>New New 1</li>
+                                <li>New New 2</li>
+                                <li>New New 3</li>
+                            </ul>
+
+                            <li data-toggle="collapse" data-target="#reportes" class="collapsed">
+                                <a href="#"> Reportes </a>
+                            </li>
+                            <ul class="sub-menu collapse" id="reportes">
+                                <li>New New 1</li>
+                                <li>New New 2</li>
+                                <li>New New 3</li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+            </ui:insert>
+        </div><!--Fin del LeftBar-->
+        <div id="content" class="left_content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+
+    </h:body>
+
+</html>
